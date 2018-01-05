@@ -3,10 +3,10 @@
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LuckyController
+class LuckyController extends Controller
 {
     /**
      * @Route("/lucky/number")
@@ -15,8 +15,18 @@ class LuckyController
     {
         $number = mt_rand(0, 100);
 
-        return new Response(
-            '<html><body>Lucky numberr: '.$number.'</body></html>'
-        );
+        return $this->render('lucky/number.html.twig', array(
+            'number' => $number,
+        ));
+    }
+
+    /**
+     * @Route("/lucky/{name}")
+     */
+    public function name($name)
+    {
+        return $this->render('lucky/name.html.twig', array(
+            'name' => $name,
+        ));
     }
 }
