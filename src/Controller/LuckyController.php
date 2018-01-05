@@ -25,8 +25,15 @@ class LuckyController extends Controller
      */
     public function name($name)
     {
+        $notes = [
+            'Marek made some note',
+            'Marek made some note2',
+            'Marek made some note3',
+        ];
+
         return $this->render('lucky/name.html.twig', array(
             'name' => $name,
+            'notes' => $notes,
         ));
     }
 }

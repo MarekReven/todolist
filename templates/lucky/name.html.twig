@@ -1,3 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genus {{ name }}{% endblock %}
+
+{% block body %}
 <body>
 <h1>Your lucky name is {{ name }}</h1>
+<ul>
+    {% for note in notes %}
+        <li>{{ note }}</li>
+    {% endfor %}
+</ul>
 </body>
+{% endblock %}
